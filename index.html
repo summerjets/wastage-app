@@ -1,0 +1,125 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+    rel="stylesheet"
+    />
+
+
+</head>
+<body>
+    <div class="container"style="max-width: 500px;">
+
+        <div class="text-center" style="margin: 20px 0px 20px 0px;">
+            <span class="text-secondary">Wastage Tracker</span>
+        </div>
+
+        <form method="post" action="">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="inputFormRow">
+                        <div class="input-group mb-3">
+                            <div class="row">
+                                <div class="col">
+
+                                  <select class="select form-select" id="inlineFormCustomSelectPref">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Blondie</option>
+                                    <option value="2">Carmelita</option>
+                                    <option value="2">Cheesecake</option>
+                                    <option value="3">Veggie Sandwich</option>
+                                    <option value="3">Meat Sandwich</option>
+                                </select>
+
+                            </div>
+                            <div class="col">
+                                <input type="number" value="1" min="0" max="10" step="1"/>
+                            </div>
+                            <div class="col">
+                                <div class="input-group-append">
+                                    <button id="removeRow" type="button" class="btn btn-danger">X</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="newRow"></div>
+                <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script type="text/javascript">
+        // add row
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group mb-3">';
+            html += '<div class="row">';
+            html += '<div class="col">';
+            html += '<select class="select form-select" id="inlineFormCustomSelectPref">';
+            html += '<option selected>Choose...</option>';
+            html += '<option value="1">Blondie</option><option value="2">Carmelita</option><option value="2">Cheesecake</option><option value="3">Veggie Sandwich</option><option value="3">Meat Sandwich</option>';
+            html += '</select>';
+            html += '</div>';
+            html += '<div class="col"><input type="number" value="1" min="0" max="10" step="1"/></div>';
+            html += '<div class="col"><div class="input-group-append"><button id="removeRow" type="button" class="btn btn-danger">X</button></div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+
+            $("input[type='number']").last().inputSpinner();
+
+        });
+
+        // remove row
+        $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+    </script>
+
+    <script src="src/input-spinner.js"></script>
+    <script>
+        $("input[type='number']").inputSpinner();
+    </script>
+
+
+</body>
+
+
+
+</html>
